@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,6 +9,11 @@ public class CardChat : MonoBehaviour
 {
     public Image imageCard;
     public TMP_Text nameCard;
+    public bool match;
+    public string nameGirlCard;
+    public Sprite faceGirlCard;
+    public List<chat> chat;
+    public int percentageMatch;
     
     // Start is called before the first frame update
     void Start()
@@ -20,4 +26,29 @@ public class CardChat : MonoBehaviour
     {
         
     }
+}
+[Serializable]
+public class chat
+{
+    public int id;
+    public bool used;
+    public bool match;
+    public List<questions> questions;
+    public List<photos> photos;
+}
+[Serializable]
+public class questions
+{
+    public string rightQuestions;
+    public string wrongQuestions;
+    public string rightResponse;
+    public string wrongResponse;
+    public bool used;
+}
+[Serializable]
+public class photos
+{
+    public Image sexyImage;
+    public Image hotImage;
+    public bool used;
 }
