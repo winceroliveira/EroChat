@@ -1,0 +1,315 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2025439927287018127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5418065722853030915}
+  - component: {fileID: 6841325926923142516}
+  - component: {fileID: 5737967896785394037}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5418065722853030915
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025439927287018127}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3389917916170716915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 800}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6841325926923142516
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025439927287018127}
+  m_CullTransparentMesh: 1
+--- !u!114 &5737967896785394037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025439927287018127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: a994cd7a40f28564ba6de81b218fc642, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &8680104888276090935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6587379635919064649}
+  - component: {fileID: 5210856633482857210}
+  - component: {fileID: 8449943462173251944}
+  m_Layer: 5
+  m_Name: nameCard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6587379635919064649
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680104888276090935}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3389917916170716915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -341.37122}
+  m_SizeDelta: {x: 500, y: 117.2576}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5210856633482857210
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680104888276090935}
+  m_CullTransparentMesh: 1
+--- !u!114 &8449943462173251944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8680104888276090935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Isabela
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a354d860dc4009544a408ae75a3dc9bd, type: 2}
+  m_sharedMaterial: {fileID: -8910718043256391665, guid: a354d860dc4009544a408ae75a3dc9bd, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 85
+  m_fontSizeBase: 85
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 2
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &8859237696995045327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3389917916170716915}
+  - component: {fileID: 3720394971705500655}
+  m_Layer: 5
+  m_Name: CardChatTinderIsabela
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3389917916170716915
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8859237696995045327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5418065722853030915}
+  - {fileID: 6587379635919064649}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 800}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3720394971705500655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8859237696995045327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404cb706e48a38a479a264a5adf11bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageCard: {fileID: 5737967896785394037}
+  nameCard: {fileID: 8449943462173251944}
+  match: 0
+  nameGirlCard: 
+  faceGirlCard: {fileID: 0}
+  chat:
+  - id: 0
+    used: 0
+    match: 0
+    questions:
+    - rightQuestions: "O que voc\xEA faz para se sentir sexy?"
+      wrongQuestions: "O que voc\xEA faz da vida?"
+      rightResponse: Adoro me vestir provocativamente e sentir-me poderosa.
+      wrongResponse: "Isso n\xE3o \xE9 da sua conta."
+      used: 0
+    - rightQuestions: "Voc\xEA j\xE1 experimentou uma massagem sensual?"
+      wrongQuestions: "Qual \xE9 o seu segredo para manter a chama acesa em um relacionamento?"
+      rightResponse: "Intelig\xEAncia e confian\xE7a, sem d\xFAvida."
+      wrongResponse: "Acho que \xE9 melhor voc\xEA descobrir por si mesmo."
+      used: 0
+    - rightQuestions: "O que voc\xEA acha mais atraente em um homem?"
+      wrongQuestions: "Qual \xE9 o seu segredo para manter a chama acesa em um relacionamento?"
+      rightResponse: "Intelig\xEAncia e confian\xE7a, sem d\xFAvida."
+      wrongResponse: Prefiro manter minhas fantasias para mim mesma.
+      used: 0
+    - rightQuestions: "Qual \xE9 a sua fantasia sexual n\xE3o realizada?"
+      wrongQuestions: "O que voc\xEA acha de relacionamentos de longa dist\xE2ncia?"
+      rightResponse: "Uma aventura apaixonada em um local ex\xF3tico."
+      wrongResponse: "Essa \xE9 uma pergunta muito \xEDntima."
+      used: 0
+    - rightQuestions: "Voc\xEA j\xE1 teve uma experi\xEAncia amorosa inesquec\xEDvel?"
+      wrongQuestions: "O que voc\xEA pensa sobre relacionamentos abertos?"
+      rightResponse: "Elas s\xE3o essenciais para criar o clima perfeito."
+      wrongResponse: "N\xE3o \xE9 da sua conta."
+      used: 0
+    - rightQuestions: "Qual \xE9 a sua lingerie favorita?"
+      wrongQuestions: "Voc\xEA j\xE1 experimentou jogos er\xF3ticos?"
+      rightResponse: "Elas s\xE3o essenciais para criar o clima perfeito."
+      wrongResponse: "Essa \xE9 uma quest\xE3o muito pessoal."
+      used: 0
+    photos:
+    - sexyImage: {fileID: 21300000, guid: 5d0ba1a974db02945a476b08273b1afd, type: 3}
+      hotImage: {fileID: 21300000, guid: 3214731a48596d643a4669816496bd63, type: 3}
+      used: 0
+    - sexyImage: {fileID: 21300000, guid: a5d3753fc30344544895734ebc76fa21, type: 3}
+      hotImage: {fileID: 21300000, guid: 57c7ddc7054c1e64a815c1a07fe327f9, type: 3}
+      used: 0
+    - sexyImage: {fileID: 21300000, guid: 9a6e15c7e51f0d44c980dbe819c84d68, type: 3}
+      hotImage: {fileID: 21300000, guid: b6ab4f20f1a8472459be271923f20ca9, type: 3}
+      used: 0
+    - sexyImage: {fileID: 21300000, guid: 7e6138fa75ecd2e4c8ac3ff0066d5d8e, type: 3}
+      hotImage: {fileID: 21300000, guid: 3c91a2561669f7a4da1d38ee1ea6f3e8, type: 3}
+      used: 0
+  percentageMatch: 0

@@ -1,0 +1,316 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &148715961424320561
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2127350441490286111}
+  - component: {fileID: 1269759007770272773}
+  - component: {fileID: 2532977388978927494}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2127350441490286111
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148715961424320561}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5913278079081963493}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 800}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1269759007770272773
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148715961424320561}
+  m_CullTransparentMesh: 1
+--- !u!114 &2532977388978927494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148715961424320561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 34928123988e44b4b8b5a1f38565cbf5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3213211422921686381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5913278079081963493}
+  - component: {fileID: 5852762627950489030}
+  m_Layer: 5
+  m_Name: CardChatTinderSofia
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5913278079081963493
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213211422921686381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2127350441490286111}
+  - {fileID: 4967233643577730290}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 800}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5852762627950489030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3213211422921686381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 404cb706e48a38a479a264a5adf11bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageCard: {fileID: 2532977388978927494}
+  nameCard: {fileID: 4592613096667523126}
+  match: 0
+  nameGirlCard: 
+  faceGirlCard: {fileID: 0}
+  chat:
+  - id: 0
+    used: 0
+    match: 0
+    questions:
+    - rightQuestions: "O que voc\xEA gosta de fazer para relaxar?"
+      wrongQuestions: "O que voc\xEA faz da vida?"
+      rightResponse: Adoro tomar banho de espuma e me perder em pensamentos sensuais.
+      wrongResponse: "Normalmente, leio um livro ou ou\xE7o m\xFAsica cl\xE1ssica."
+      used: 0
+    - rightQuestions: "Qual \xE9 o seu segredo para manter a paix\xE3o em um relacionamento?"
+      wrongQuestions: "O que voc\xEA pensa sobre relacionamentos abertos?"
+      rightResponse: Explorar fantasias juntos e manter a chama sempre acesa.
+      wrongResponse: "Isso \xE9 algo muito pessoal para discutir."
+      used: 0
+    - rightQuestions: "Qual \xE9 a sua fantasia mais selvagem?"
+      wrongQuestions: "Voc\xEA j\xE1 teve uma experi\xEAncia amorosa inesquec\xEDvel?"
+      rightResponse: Uma voz rouca e sussurros no ouvido.
+      wrongResponse: Prefiro manter minhas fantasias para mim mesma.
+      used: 0
+    - rightQuestions: O que te excita instantaneamente?
+      wrongQuestions: "Voc\xEA acredita em amor \xE0 primeira vista?"
+      rightResponse: "Imagino n\xF3s dois em uma ilha deserta, entregando-nos ao
+        desejo sem restri\xE7\xF5es"
+      wrongResponse: "Essa \xE9 uma quest\xE3o muito pessoal."
+      used: 0
+    - rightQuestions: "Como voc\xEA se sente sobre preliminares?"
+      wrongQuestions: "O que voc\xEA acha mais atraente em um homem?"
+      rightResponse: "Elas s\xE3o essenciais para criar o clima perfeito."
+      wrongResponse: "N\xE3o acho que isso seja da sua conta."
+      used: 0
+    - rightQuestions: "Como voc\xEA se sente sobre preliminares?"
+      wrongQuestions: "O que voc\xEA acha mais atraente em uma mulher?"
+      rightResponse: "Elas s\xE3o essenciais para criar o clima perfeito."
+      wrongResponse: "N\xE3o acho que isso seja da sua conta."
+      used: 0
+    photos:
+    - sexyImage: {fileID: 21300000, guid: a0f7c6b85ee4cea47ac2090f99de0376, type: 3}
+      hotImage: {fileID: 21300000, guid: 2fade687a5c8fc34793e855c7b4b1b5e, type: 3}
+      used: 0
+    - sexyImage: {fileID: 21300000, guid: e52fd460cc7c0164db5b2da7e536817d, type: 3}
+      hotImage: {fileID: 21300000, guid: 18adca022a9133542a284d4627e51923, type: 3}
+      used: 0
+    - sexyImage: {fileID: 21300000, guid: 7f03e7ef67a94ea46be62580d329191e, type: 3}
+      hotImage: {fileID: 21300000, guid: c4021154e7bf4cb47b1ecfa9289bd803, type: 3}
+      used: 0
+    - sexyImage: {fileID: 21300000, guid: d16f26fb96dc4c44a89687d0286c420b, type: 3}
+      hotImage: {fileID: 21300000, guid: 58213258d2f61c8439317b9b68081f36, type: 3}
+      used: 0
+  percentageMatch: 0
+--- !u!1 &4603213163843908046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4967233643577730290}
+  - component: {fileID: 6426383840757665764}
+  - component: {fileID: 4592613096667523126}
+  m_Layer: 5
+  m_Name: nameCard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4967233643577730290
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603213163843908046}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5913278079081963493}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -341.37122}
+  m_SizeDelta: {x: 500, y: 117.2576}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6426383840757665764
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603213163843908046}
+  m_CullTransparentMesh: 1
+--- !u!114 &4592613096667523126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4603213163843908046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Sofia
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: a354d860dc4009544a408ae75a3dc9bd, type: 2}
+  m_sharedMaterial: {fileID: -8910718043256391665, guid: a354d860dc4009544a408ae75a3dc9bd, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 85
+  m_fontSizeBase: 85
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 2
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}

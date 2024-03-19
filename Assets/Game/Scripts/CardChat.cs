@@ -14,6 +14,7 @@ public class CardChat : MonoBehaviour
     public Sprite faceGirlCard;
     public List<chat> chat;
     public int percentageMatch;
+    public bool used;
     
     // Start is called before the first frame update
     void Start()
@@ -48,7 +49,7 @@ public class questions
 [Serializable]
 public class photos
 {
-    public Image sexyImage;
-    public Image hotImage;
+    public Sprite sexyImage;
+    public Sprite hotImage;
     public bool used;
 }
