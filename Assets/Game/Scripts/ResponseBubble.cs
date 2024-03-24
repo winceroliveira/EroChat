@@ -7,9 +7,21 @@ public class ResponseBubble : MonoBehaviour
 {
     public TMP_Text textMessage;
     public GameManager gameManager;
-
-    public void SelectedBubble()
+    public Responses response;
+    public void SelectedBubbleResponse()
     {
-        gameManager.SelectedBubble(textMessage.text);
+        gameManager.AddMainResponse(textMessage.text);
+        gameManager.CreatedChatGirl(gameManager.chatFaceGirlActual.chat.questions,response);
+    }
+
+    public void SetTextMessage(string message)
+    {
+        textMessage.text = "";
+        textMessage.text = message;
+    }
+
+    public void SetResponse(Responses responses)
+    {
+        this.response = responses;
     }
 }

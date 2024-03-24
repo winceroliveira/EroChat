@@ -129,7 +129,7 @@ MonoBehaviour:
   nameCard: {fileID: 4592613096667523126}
   match: 0
   nameGirlCard: 
-  faceGirlCard: {fileID: 0}
+  faceGirlCard: {fileID: 21300000, guid: 34928123988e44b4b8b5a1f38565cbf5, type: 3}
   chat:
   - id: 0
     used: 0
@@ -180,6 +180,7 @@ MonoBehaviour:
       hotImage: {fileID: 21300000, guid: 58213258d2f61c8439317b9b68081f36, type: 3}
       used: 0
   percentageMatch: 0
+  used: 0
 --- !u!1 &4603213163843908046
 GameObject:
   m_ObjectHideFlags: 0
