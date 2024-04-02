@@ -16,7 +16,7 @@ public class ChatImageFaceGirl : MonoBehaviour
    public List<GameObject> questionsGirl;
    public List<GameObject> questionsMain;
    public List<GameObject> optionsResponse;
-   public readonly List<ChatFaceGirl> chatFaceGirlSaved = new List<ChatFaceGirl>();
+   public List<ChatFaceGirl> chatFaceGirlSaved = new List<ChatFaceGirl>();
    
    public void ActiveNotification()
    {
@@ -29,9 +29,18 @@ public class ChatImageFaceGirl : MonoBehaviour
    }
    public void SelectedChat()
    {
-      imageSelected.gameObject.SetActive(true);
-      gameManager.SelectedFaceGirl(gameObject.name);
+      gameManager.SelectedFaceGirl(imageFaceGirl.sprite.name);
       gameManager.SetResponse(responseActual);
+      // ActivateImageSelected();
+   }
+
+   public void ActivateImageSelected()
+   {
+      imageSelected.enabled = true;
+   }
+   public void DeselectChat()
+   {
+      imageSelected.enabled = false;
    }
 
    public void AddLIstQuestionGirl(GameObject message)
@@ -74,7 +83,7 @@ public class ChatImageFaceGirl : MonoBehaviour
       optionsResponse.Clear();
    }
 
-   public void SaveChat(string questionGirlActual, string questionMainActual, string optionRightActual, string optionWrongActual)
+   public void SaveChat(string questionGirlActual, string questionMainActual, string optionRightActual, string optionWrongActual, Sprite imageGirl)
    {
       if (chatFaceGirlSaved.Count > 0)
       {
@@ -92,7 +101,8 @@ public class ChatImageFaceGirl : MonoBehaviour
          questionGirlActual,
          questionMainActual,
          optionRightActual,
-         optionWrongActual);
+         optionWrongActual,
+         imageGirl);
       chatFaceGirlSaved.Add(chatFaceGirl);
    }
 }

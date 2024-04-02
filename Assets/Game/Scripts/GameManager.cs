@@ -44,7 +44,9 @@ public class GameManager : MonoBehaviour
     public string questionMainActual;
     public string optionRightActual;
     public string optionWrongActual;
+    public Sprite imageGirlActual;
     public ChatImageFaceGirl chatFaceGirlActual;
+    public GameObject contentScrollView;
     private Responses response;
     [Header("Tinder")]
     public Transform targetCardChats;
@@ -87,7 +89,7 @@ public class GameManager : MonoBehaviour
     public void StartTinder()
     {
         alertTinder.SetActive(false);
-        if (!VerifyUsedCars()) FinishTinder();
+        if (!VerifyUsedCards()) FinishTinder();
         SetPanel(panelTinder);
         DrawingCard();
     }
@@ -102,8 +104,9 @@ public class GameManager : MonoBehaviour
         alertChat.SetActive(false);
         SetPanel(panelChat);
         selectedChatActual = cardChatsMatch[0];
-        ClearChats();
-        CreatedChatGirl(imagesFaceGirlInstantiating[^1].GetComponent<ChatImageFaceGirl>().chat.questions);
+        imagesFaceGirlInstantiating[^1].GetComponent<ChatImageFaceGirl>().SelectedChat();
+        // selectedChatActual.GetComponent<ChatImageFaceGirl>().SelectedChat();
+        // CreatedChatGirl(imagesFaceGirlInstantiating[^1].GetComponent<ChatImageFaceGirl>().chat.questions);
     }
 
     public void ClosePanel()
@@ -127,10 +130,7 @@ public class GameManager : MonoBehaviour
         imageZoom.gameObject.SetActive(false);
     }
 
-    //adicionar a foto na direita ok
-    //quando abrir o painel de chat automaticamente tem que selecionar a primeira foto de cima 
-    //quando a foto estiver selecionada tem que limpar tudo do chat e mostrar o dialogo daquela foto com as opçoes de resposta do player
-    public void ClearChats()
+    private void ClearChats()
     {
         foreach (var chatFaceGirl in imagesFaceGirlInstantiating)
         {
@@ -142,32 +142,58 @@ public class GameManager : MonoBehaviour
         }
         // imagesFaceGirlInstantiating.Clear();
     }
+    private void DeselectImageChats()
+    {
+        foreach (var obj in imagesFaceGirlInstantiating)
+        {
+            obj.GetComponent<ChatImageFaceGirl>().DeselectChat();
+        }
+    }
     public void SelectedFaceGirl(string nameGameObj)
     {
+        ClearChats();
+        DeselectImageChats();
+        var position = contentScrollView.transform.localPosition;
+        position = new Vector3(position.x,0,position.z);
+        contentScrollView.transform.localPosition = position;
+        if (chatFaceGirlActual != null)
+        {
+            // chatFaceGirlActual.DeselectChat();
+        }
         var chatImageActual = imagesFaceGirlInstantiating.Find(x => x.name == nameGameObj);
         var chatImageFaceGirl = chatImageActual.GetComponent<ChatImageFaceGirl>();
-        // chatImageFaceGirl.ClearListQuestionGirl();
-        // chatImageFaceGirl.ClearListQuestionMain();
-        // chatImageFaceGirl.ClearListOptionsResponse();
         chatFaceGirlActual = chatImageFaceGirl;
-        var chatFaceGirl = chatFaceGirlActual.chatFaceGirlSaved;
-        if (chatFaceGirl.Count <= 0) return;
-        foreach (var chat in chatFaceGirl)
+        chatFaceGirlActual.ActivateImageSelected();
+        var chatFaceGirlSaved = chatFaceGirlActual.chatFaceGirlSaved;
+        if (chatFaceGirlSaved.Count <= 0) return;
+        foreach (var chat in chatFaceGirlSaved)
         {
-            var chatFace = Instantiate(prefabChatGirl, targetChatGirl);
-            chatFace.GetComponent<ChatBubble>().SetMessageText(chat.chatGirl);
-            chatFaceGirlActual.AddLIstQuestionGirl(chatFace);
-            var chatMain = Instantiate(prefabChatMain, targetChatMain);
-            chatFace.GetComponent<ChatBubble>().SetMessageText(chat.chatMain);
-            chatFaceGirlActual.AddListQuestionMain(chatMain);
+            var chatFaceGirl = Instantiate(prefabChatGirl, targetChatGirl);
+            chatFaceGirl.GetComponent<ChatBubble>().SetMessageText(chat.chatGirl);
+            chatFaceGirlActual.AddLIstQuestionGirl(chatFaceGirl);
+            if (chat.chatMain != string.Empty)
+            {
+                var chatMain = Instantiate(prefabChatMain, targetChatMain);
+                chatMain.GetComponent<ChatBubble>().SetMessageText(chat.chatMain);
+                chatFaceGirlActual.AddListQuestionMain(chatMain);
+            }
+
+            if (chat.imageGirl != null)
+            {
+                var imageGirl = Instantiate(prefabImageChatGirl, targetChatGirl);
+                var chatImage = imageGirl.GetComponent<ChatImage>();
+                chatImage.gameManager = this;
+                chatImage.imageGirl.sprite = chat.imageGirl;
+                chatFaceGirlActual.AddLIstQuestionGirl(imageGirl);
+            }
         }
 
-        if (chatFaceGirl[^1].rightResponse == string.Empty) return;
-        var rightResponse = chatFaceGirl[^1].rightResponse;
+        if (chatFaceGirlSaved[^1].rightResponse == string.Empty) return;
+        var rightResponse = chatFaceGirlSaved[^1].rightResponse;
         InstantiateResponsesChat(rightResponse, Responses.RightResponse);
-        var wrongResponse = chatFaceGirl[^1].wrongResponse;
+        var wrongResponse = chatFaceGirlSaved[^1].wrongResponse;
         InstantiateResponsesChat(wrongResponse, Responses.WrongResponse);
-
+        
         return;
 
         void InstantiateResponsesChat(string message, Responses responses)
@@ -176,6 +202,7 @@ public class GameManager : MonoBehaviour
             responseBubble.gameManager = this;
             responseBubble.SetResponse(responses);
             responseBubble.SetTextMessage(message);
+            chatFaceGirlActual.AddListOptionResponse(responseBubble.gameObject);
         }
     }
     private void AddChat(GameObject obj)
@@ -183,14 +210,14 @@ public class GameManager : MonoBehaviour
         var cardChat = obj.GetComponent<CardChat>();
         var chatFace = Instantiate(prefabFaceGirl, targetFaceGirl).GetComponentInChildren<ChatImageFaceGirl>();
         chatFace.imageFaceGirl.sprite = cardChat.faceGirlCard;
+        chatFace.gameObject.name = $"{chatFace.imageFaceGirl.sprite.name}";
         chatFace.ActiveNotification();
         chatFace.chat = cardChat.chat[0];
         chatFace.gameManager = this;
         chatFaceGirlActual = chatFace;
         imagesFaceGirlInstantiating.Add(chatFace.gameObject);
-        // CreatedChatGirl(chatFace.chat.questions);
+        CreatedChatGirl(chatFace.chat.questions);
     }
-
     private void CreatedChatGirl(List<questions>questionsList)
     {
         var chatBubble = Instantiate(prefabChatGirl, targetChatGirl).GetComponent<ChatBubble>();
@@ -220,8 +247,13 @@ public class GameManager : MonoBehaviour
             chatFaceGirlActual.AddLIstQuestionGirl(chatBubble.gameObject);
         }
     }
-    public void CreatedChatGirl(List<questions>questionsList, Responses responses)
+    public void CreatedChatGirl(List<questions>questionsList, Responses responses, List<photos> photosList)
     {
+        if (AllUsed(questionsList))
+        {
+            chatFaceGirlActual.ClearListOptionsResponse();
+            return;
+        }
         var chatBubble = Instantiate(prefabChatGirl, targetChatGirl).GetComponent<ChatBubble>();
         foreach (var question in questionsList.Where(question => !question.used))
         {
@@ -230,9 +262,11 @@ public class GameManager : MonoBehaviour
             {
                 case Responses.RightResponse:
                     SetResponse(question.rightQuestions);
+                    SetImage();
                     break;
                 case Responses.WrongResponse:
                     SetResponse(question.wrongResponse);
+                    SetImage();
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -240,6 +274,7 @@ public class GameManager : MonoBehaviour
             AddResponses(question.rightResponse,question.wrongResponse);
             break;
         }
+        
         return;
 
         void SetResponse(string message)
@@ -248,8 +283,28 @@ public class GameManager : MonoBehaviour
             questionGirlActual = message;
             chatFaceGirlActual.AddLIstQuestionGirl(chatBubble.gameObject);
         }
-    }
 
+        void SetImage()
+        {
+            var hit = Random.Range(0, 100);
+            if (hit <= 40)
+            {
+                imageGirlActual = null;
+                return;
+            }
+            foreach (var photo in photosList.Where(photo => !photo.used))
+            {
+                photo.used = true;
+                var imageGirl = Instantiate(prefabImageChatGirl, targetChatGirl);
+                var chatImage = imageGirl.GetComponent<ChatImage>();
+                chatImage.gameManager = this;
+                chatImage.imageGirl.sprite = responses == Responses.RightResponse ? photo.hotImage : photo.sexyImage;
+                chatFaceGirlActual.AddLIstQuestionGirl(imageGirl);
+                imageGirlActual = chatImage.imageGirl.sprite;
+                break;
+            }
+        }
+    }
     private void AddResponses(string rightResponse, string wrongResponse)
     {
         optionRightActual = rightResponse;
@@ -267,18 +322,16 @@ public class GameManager : MonoBehaviour
             InstantiateResponse(wrongResponse, Responses.WrongResponse);
             InstantiateResponse(rightResponse, Responses.RightResponse);
         }
-        chatFaceGirlActual.SaveChat(questionGirlActual, questionMainActual, optionRightActual, optionWrongActual);
+        chatFaceGirlActual.SaveChat(questionGirlActual, questionMainActual, optionRightActual, optionWrongActual,imageGirlActual);
     }
-
     public void AddMainResponse(string message)
     {
         var chatBubble = Instantiate(prefabChatMain, targetChatMain).GetComponent<ChatBubble>();
         chatBubble.SetMessageText(message);
         questionMainActual = message;
         chatFaceGirlActual.AddListQuestionMain(chatBubble.gameObject);
-        chatFaceGirlActual.SaveChat(questionGirlActual, questionMainActual, optionRightActual, optionWrongActual);
+        // chatFaceGirlActual.SaveChat(questionGirlActual, questionMainActual, optionRightActual, optionWrongActual);
     }
-
     private void InstantiateResponse(string message, Responses responses)
     {
         var responseBubble = Instantiate(prefabResponseChat, targetResponse).GetComponent<ResponseBubble>();
@@ -287,10 +340,21 @@ public class GameManager : MonoBehaviour
         responseBubble.SetTextMessage(message);
         chatFaceGirlActual.AddListOptionResponse(responseBubble.gameObject);
     }
-
     public void SetResponse(Responses responses)
     {
         this.response = responses;
+    }
+
+    private static bool AllUsed(List<questions> list)
+    {
+        foreach (var item in list)
+        {
+            if (!item.used)
+            {
+                return false;
+            }
+        }
+        return true;
     }
     #endregion
 
@@ -331,7 +395,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            if (!VerifyUsedCars()) SetNotification($"Wait for updates!!!");
+            if (!VerifyUsedCards()) SetNotification($"Wait for updates!!!");
             var indexCard = Random.Range(0, cardChats.Count - 1);
             var cardDrawing = Instantiate(cardChats[indexCard],targetCardChats);
             cardChats.Remove(cardChats[indexCard]);
@@ -345,7 +409,7 @@ public class GameManager : MonoBehaviour
         SetPanel(panelMain);
     }
     
-    private bool VerifyUsedCars()
+    private bool VerifyUsedCards()
     {
         foreach (var item in cardChats)
         {
@@ -377,21 +441,23 @@ public class GameManager : MonoBehaviour
 
     #endregion
 }
-
+[Serializable]
 public class ChatFaceGirl
 {
-    public ChatFaceGirl(string chatGirl, string chatMain, string rightResponse, string wrongResponse)
+    public string chatGirl;
+    public string chatMain;
+    public string rightResponse;
+    public string wrongResponse;
+    public Sprite imageGirl;
+    public ChatFaceGirl(string chatGirl, string chatMain, string rightResponse, string wrongResponse, Sprite imageGirl = null)
     {
         this.chatGirl = chatGirl;
         this.chatMain = chatMain;
         this.rightResponse = rightResponse;
         this.wrongResponse = wrongResponse;
+        this.imageGirl = imageGirl;
     }
 
-    public string chatGirl {get; set;}
-    public string chatMain {get; set;}
-    public string rightResponse {get; set;}
-    public string wrongResponse { get; set; }
 }
 public enum Responses
 {

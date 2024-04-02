@@ -3572,7 +3572,9 @@ MonoBehaviour:
   questionMainActual: 
   optionRightActual: 
   optionWrongActual: 
+  imageGirlActual: {fileID: 0}
   chatFaceGirlActual: {fileID: 0}
+  contentScrollView: {fileID: 1032898016}
   targetCardChats: {fileID: 1043322049}
   cardChats:
   - {fileID: 8859237696995045327, guid: 1fa9a1e77a254314fb5cabbc0542b22b, type: 3}

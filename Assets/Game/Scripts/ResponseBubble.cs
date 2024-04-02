@@ -11,7 +11,8 @@ public class ResponseBubble : MonoBehaviour
     public void SelectedBubbleResponse()
     {
         gameManager.AddMainResponse(textMessage.text);
-        gameManager.CreatedChatGirl(gameManager.chatFaceGirlActual.chat.questions,response);
+        gameManager.SetResponse(response);
+        gameManager.CreatedChatGirl(gameManager.chatFaceGirlActual.chat.questions,response,gameManager.chatFaceGirlActual.chat.photos);
     }
 
     public void SetTextMessage(string message)
