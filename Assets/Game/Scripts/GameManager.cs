@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Analytics;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -16,9 +17,11 @@ public class GameManager : MonoBehaviour
     public GameObject panelTinder;
     public GameObject panelChat;
     public GameObject panelNewGame;
+    public GameObject panelGallery;
     private GameObject panelActual;
     [Header("PlayGame")]
     public TMP_Text playText;
+    public TMP_InputField inputName;
     [Header("Alert")]
     public GameObject alertTinder;
     public GameObject alertChat;
@@ -48,27 +51,58 @@ public class GameManager : MonoBehaviour
     public ChatImageFaceGirl chatFaceGirlActual;
     public GameObject contentScrollView;
     private Responses response;
-    [Header("Tinder")]
+    [Header("Tinder")] 
+    public GameObject panelChose;
     public Transform targetCardChats;
-    public List<GameObject> cardChats;
+    public List<GameObject> cardChatsFemale;
+    public List<GameObject> cardChatsMale;
+    public List<GameObject> cardChatsTrans;
+    public List<GameObject> cardChatsFurry;
+    public List<GameObject> cardChatsAll;
+    private List<GameObject> listCardsChosen;
     public CardChat cardChatActual;
-
     [Header("Notification")]
     public GameObject panelNotification;
     public TMP_Text messageNotification;
+    [Header("Frame Player")] 
+    public TMP_Text namePlayerText;
+    public TMP_Text levelPlayerText;
+    public TMP_Text experiencePlayer;
+    public Slider levelPlayerSlider;
+    private string namePlayer;
+    private int levelPlayer = 1;
+    private int experienceActual = 550;
+    private int experienceNextLevel = 1000;
+    [Header("Gallery")]
+    public Image imageZoomGallery;
+    
 
+    
     #region GameManager
-    void Start()
+
+    private void Start()
     {
         ClosePanels();
         ActivePanelNewGame();
+        SetLevel(1);
+        experiencePlayer.text = $"{experienceActual}/{experienceNextLevel}";
+        levelPlayerSlider.maxValue = experienceNextLevel;
+        levelPlayerSlider.value = experienceActual;
     }
 
     public void StartGame()
     {
+        if (inputName.text.Trim() == string.Empty)
+        {
+            SetNotification($"you need to enter a name");
+            return;
+        }
+
+        namePlayer = inputName.text;
+        namePlayerText.text = namePlayer;
         SetPanel(panelMain);
     }
-
+    
     private void SetPanel(GameObject panel)
     {
         if (panelActual != null)
@@ -89,8 +123,34 @@ public class GameManager : MonoBehaviour
     public void StartTinder()
     {
         alertTinder.SetActive(false);
-        if (!VerifyUsedCards()) FinishTinder();
         SetPanel(panelTinder);
+        panelChose.SetActive(true);
+        // DrawingCard();
+    }
+
+    public void ChosenGender(int gender)
+    {
+        var genderChose = (Genders)gender;
+        switch (genderChose)
+        {
+            case Genders.Female:
+                listCardsChosen = cardChatsFemale;
+                break;
+            case Genders.Male:
+                listCardsChosen = cardChatsMale;
+                break;
+            case Genders.Trans:
+                listCardsChosen = cardChatsTrans;
+                break;
+            case Genders.Furry:
+                listCardsChosen = cardChatsFurry;
+                break;
+            case Genders.All:
+                listCardsChosen = cardChatsAll;
+                break;
+        }
+        if (!VerifyUsedCards()) FinishTinder();
+        panelChose.SetActive(false);
         DrawingCard();
     }
 
@@ -109,6 +169,11 @@ public class GameManager : MonoBehaviour
         // CreatedChatGirl(imagesFaceGirlInstantiating[^1].GetComponent<ChatImageFaceGirl>().chat.questions);
     }
 
+    public void StartGallery()
+    {
+        SetPanel(panelGallery);
+    }
+
     public void ClosePanel()
     {
         SetPanel(panelMain);
@@ -122,14 +187,39 @@ public class GameManager : MonoBehaviour
         panelNewGame.SetActive(false);
     }
     #endregion
+    #region Player
+
+    private void SetLevel(int level)
+    {
+        levelPlayer += level;
+        levelPlayerText.text = $"{levelPlayer}";
+        if (experienceActual >= experienceNextLevel)
+        {
+            SetExperience();
+        }
+    }
+
+    private void SetExperience(int experience = 0)
+    {
+        experienceActual += experience;
+        if (experienceActual < experienceNextLevel) return;
+        experienceActual -= experienceNextLevel;
+        experienceNextLevel *= 2;
+        experiencePlayer.text = $"{experienceActual}/{experienceNextLevel}";
+        levelPlayerSlider.maxValue = experienceNextLevel;
+        levelPlayerSlider.value = experienceActual;
+        SetLevel(1);
+    }
+
+    #endregion
     
     #region Chat
 
     public void CloseImageZoom()
     {
         imageZoom.gameObject.SetActive(false);
+        imageZoomGallery.gameObject.SetActive(false);
     }
-
     private void ClearChats()
     {
         foreach (var chatFaceGirl in imagesFaceGirlInstantiating)
@@ -240,6 +330,7 @@ public class GameManager : MonoBehaviour
         }
         return;
 
+        // ReSharper disable once LocalFunctionHidesMethod
         void SetResponse(string message)
         {
             chatBubble.SetMessageText(message);
@@ -277,6 +368,7 @@ public class GameManager : MonoBehaviour
         
         return;
 
+        // ReSharper disable once LocalFunctionHidesMethod
         void SetResponse(string message)
         {
             chatBubble.SetMessageText(message);
@@ -344,7 +436,6 @@ public class GameManager : MonoBehaviour
     {
         this.response = responses;
     }
-
     private static bool AllUsed(List<questions> list)
     {
         foreach (var item in list)
@@ -389,16 +480,16 @@ public class GameManager : MonoBehaviour
 
     private void DrawingCard()
     {
-        if (cardChats.Count <= 0)
+        if (listCardsChosen.Count <= 0)
         {
             FinishTinder();
         }
         else
         {
             if (!VerifyUsedCards()) SetNotification($"Wait for updates!!!");
-            var indexCard = Random.Range(0, cardChats.Count - 1);
-            var cardDrawing = Instantiate(cardChats[indexCard],targetCardChats);
-            cardChats.Remove(cardChats[indexCard]);
+            var indexCard = Random.Range(0, listCardsChosen.Count - 1);
+            var cardDrawing = Instantiate(listCardsChosen[indexCard],targetCardChats);
+            listCardsChosen.Remove(listCardsChosen[indexCard]);
             var card = cardDrawing.GetComponent<CardChat>();
             cardChatActual = card;
         }
@@ -407,11 +498,12 @@ public class GameManager : MonoBehaviour
     private void FinishTinder()
     {
         SetPanel(panelMain);
+        SetNotification($"We currently have no more members for this category.");
     }
     
     private bool VerifyUsedCards()
     {
-        foreach (var item in cardChats)
+        foreach (var item in listCardsChosen)
         {
             var card = item.GetComponent<CardChat>();
             if (!card.used)
@@ -463,4 +555,13 @@ public enum Responses
 {
     RightResponse,
     WrongResponse
+}
+
+public enum Genders
+{
+    Female,
+    Male,
+    Trans,
+    Furry,
+    All
 }
